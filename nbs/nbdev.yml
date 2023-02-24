@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "eu-gas-imports"
+  site-url: "https://anatexis.github.io/eu-gas-imports"
+  description: "Analyse gas imports into EU (data from bruegel.org)"
+  repo-branch: main
+  repo-url: "https://github.com/anatexis/eu-gas-imports"
