@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "download_gas_data.html",
+    "href": "download_gas_data.html",
+    "title": "Download gas data",
+    "section": "",
+    "text": "Import the needed modules. You need to install requests and you need a config.py file which contains the path where you want to save the data."
+  },
+  {
+    "objectID": "download_gas_data.html#get-the-right-url",
+    "href": "download_gas_data.html#get-the-right-url",
+    "title": "Download gas data",
+    "section": "Get the right URL",
+    "text": "Get the right URL\nThe url to the file looks something like this: https://www.bruegel.org/sites/default/files/2023-02/Gas%20tracker%2021.02.23.zip\nWhen the file gets updated, the filename is changed to the actual date. So we have to put the url together from the basic url, the “bone” https://www.bruegel.org/sites/default/files/\n\nbone = \"https://www.bruegel.org/sites/default/files/\"\n\nmonth and year: 2023-02:\n\nyear_month = datetime.datetime.today().strftime('%Y-%m')\n\n…“Gas tracker” (with spaces):\n\ngastracker = \"/Gas%20tracker%20\"\n\nand the actual date 21.02.23:\n\ntoday = datetime.datetime.today().strftime('%d.%m.%y')\n\nSo the actual url we need is:\n\nurl = bone + year_month + gastracker + today + '.zip'"
+  },
+  {
+    "objectID": "download_gas_data.html#non-ugly-filename",
+    "href": "download_gas_data.html#non-ugly-filename",
+    "title": "Download gas data",
+    "section": "Non-ugly Filename",
+    "text": "Non-ugly Filename\nThe filename should not contain periods, so we create a new filename\n\ntoday_fn = datetime.datetime.today().strftime('%y_%m_%d')\nfilename = today_fn + \"_gastracker.zip\""
+  },
+  {
+    "objectID": "download_gas_data.html#download-data",
+    "href": "download_gas_data.html#download-data",
+    "title": "Download gas data",
+    "section": "Download data",
+    "text": "Download data\nSend a HEAD request to check if the file exists (was updated). If it doesn’t exist, that means the file was not updated. (there may be a warning, that you should use exit instead of exit() but it should work nontheless\n\nr = requests.head(url)\nif r.status_code == 404:\n    print(f\"Nothing to download. File not updated.\")\n    exit()\n\nNothing to download. File not updated.\n\n\nSystemExit: \n\n\n/home/christoph/mambaforge/lib/python3.10/site-packages/IPython/core/interactiveshell.py:3450: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n\n\nIf the file exists, it means it was updated, download it\n\ndownload_dir = \"/home/christoph/Dokumente/Baumhaus/Programmieren/data/data_eu_gas_imports\"\n\nr = requests.head(url)\nif r.status_code == 200:\n    response = requests.get(url)\n    with open(os.path.join(download_dir, filename), \"wb\") as f:\n        f.write(response.content)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "eu-gas-imports",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "eu-gas-imports",
+    "section": "Install",
+    "text": "Install\npip install eu_gas_imports"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "eu-gas-imports",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  }
+]
