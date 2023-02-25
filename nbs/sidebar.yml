@@ -3,3 +3,4 @@ website:
     contents:
       - index.ipynb
       - 00_download_gas_data.ipynb
+      - 01_config.ipynb
