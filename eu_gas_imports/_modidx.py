@@ -2,8 +2,8 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/eu-gas-imports',
-                'doc_host': 'https://anatexis\n\nrequirements = requests.github.io',
-                'git_url': 'https://github.com/anatexis\n\nrequirements = requests/eu-gas-imports',
+                'doc_host': 'https://anatexis.github.io',
+                'git_url': 'https://github.com/anatexis/eu-gas-imports',
                 'lib_path': 'eu_gas_imports'},
   'syms': { 'eu_gas_imports.config': {},
             'eu_gas_imports.core': {'eu_gas_imports.core.foo': ('core.html#foo', 'eu_gas_imports/core.py')},
